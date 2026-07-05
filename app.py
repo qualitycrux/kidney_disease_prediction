@@ -46,7 +46,7 @@ def predict_chronic_disease(age, bp, sg, al, hemo, sc, htn, dm, cad, appet, pc):
 
 # Streamlit UI
 st.title('Chronic Kidney Disease Prediction')
-
+st.write('Developed by Muhammad Akhtar: 03215261156')
 
 col1, col2 = st.columns(2)
 
