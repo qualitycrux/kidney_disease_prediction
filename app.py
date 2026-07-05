@@ -1,9 +1,7 @@
 import streamlit as st
 import pickle
 import pandas as pd
-import numpy as np
-from numpy.f2py.crackfortran import endifs
-from sklearn.preprocessing import LabelEncoder
+
 
 #load model
 model=pickle.load(open('model-kidney-desease.pkl','rb'))
