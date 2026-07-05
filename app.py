@@ -249,6 +249,12 @@ with st.expander("📋 Sample Data (Kidney Disease = YES)"):
         
         48,70,1.005,4,11.2,3.8,yes,no,no,poor,abnormal
         """)
+with st.expander("📋 Sample Data (Kidney Disease = NO)"):
+    st.code("""
+        55,80,1.020,0,15.7,0.5,no,no,no,good,normal
+        
+        42,70,1.025,0,16.5,1.2,no,no,no,good,normal
+        """)
 
 st.write("<h3>We can use all these values to make it more Perfect</h3>",unsafe_allow_html=True)
 st.write("""<div><ol>
@@ -276,9 +282,3 @@ st.write("""<div><ol>
     <li>Pedal Edema (Swelling of Feet)</li>
     <li>Anemia</li>
 </ol></div>""",unsafe_allow_html=True)
-with st.expander("📋 Sample Data (Kidney Disease = NO)"):
-    st.code("""
-        55,80,1.020,0,15.7,0.5,no,no,no,good,normal
-        
-        42,70,1.025,0,16.5,1.2,no,no,no,good,normal
-        """)
