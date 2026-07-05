@@ -45,44 +45,214 @@ def predict_chronic_disease(age, bp, sg, al, hemo, sc, htn, dm, cad, appet, pc):
 
 
 # Streamlit UI
-st.title('Chronic Kidney Disease Prediction')
-st.write('Developed by Muhammad Akhtar: 03215261156')
+# -----------------------------
+# Custom CSS
+# -----------------------------
+st.markdown("""
+<style>
 
-col1, col2 = st.columns(2)
+.main{
+    background-color:#f5f7fb;
+}
+
+.block-container{
+    padding-top:2.5rem;
+    padding-bottom:2rem;
+    padding-left:2rem;
+    padding-right:2rem;
+}
+
+.big-title{
+    font-size:30px;
+    font-weight:bold;
+    color:#1565C0;
+    text-align:center;
+}
+
+.sub-title{
+    text-align:center;
+    color:#666;
+    font-size:18px;
+    margin-bottom:25px;
+}
+
+.stButton>button{
+    width:100%;
+    background:#1565C0;
+    color:white;
+    font-size:22px;
+    font-weight:bold;
+    border-radius:10px;
+    height:60px;
+}
+
+.stButton>button:hover{
+    background:#0d47a1;
+    color:white;
+}
+
+div[data-testid="stNumberInput"],
+div[data-testid="stSelectbox"]{
+    background:white;
+    padding:5px;
+    border-radius:10px;
+    box-shadow:0px 2px 8px rgba(0,0,0,0.08);
+}
+
+</style>
+""", unsafe_allow_html=True)
+
+# ---------------------------------------
+# Header
+# ---------------------------------------
+
+st.markdown("<div class='big-title'>🩺 Chronic Kidney Disease Prediction</div>",
+            unsafe_allow_html=True)
+
+st.markdown(
+"<div class='sub-title'>Developed by <b>Muhammad Akhtar</b> | 📱03215261156</div>",
+unsafe_allow_html=True)
+
+#st.divider()
+st.subheader("👤 Patient Details")
+# ---------------------------------------
+# Three Columns
+# ---------------------------------------
+
+col1, col2, col3 = st.columns(3)
 
 with col1:
-    # Input fields for the user to enter data
-    age = st.number_input("Age", min_value=1, max_value=120, value=48)
-    bp = st.number_input("Blood Pressure", min_value=40, max_value=200, value=80)
-    sg = st.number_input("Specific Gravity", min_value=1.005, max_value=1.050, value=1.020)
-    al = st.number_input("Albumin", min_value=0.0, max_value=5.0, value=1.0)
-    hemo = st.number_input("Hemoglobin", min_value=5.0, max_value=20.0, value=15.4)
-    sc = st.number_input("Serum Creatinine", min_value=0.5, max_value=10.0, value=1.2)
+
+
+
+    age = st.number_input(
+        "Age",
+        min_value=1,
+        max_value=120,
+        value=48
+    )
+
+    bp = st.number_input(
+        "Blood Pressure",
+        min_value=40,
+        max_value=200,
+        value=80
+    )
+
+    sg = st.number_input(
+        "Specific Gravity",
+        min_value=1.005,
+        max_value=1.050,
+        value=1.020,
+        format="%.3f"
+    )
+
+    al = st.number_input(
+        "Albumin",
+        min_value=0.0,
+        max_value=5.0,
+        value=1.0
+    )
+
 
 with col2:
-    # Dropdown for conditions
-    htn = st.selectbox("Hypertension", ["yes",'no'])
-    dm = st.selectbox("Diabetes", ["yes",'no'])
-    cad = st.selectbox("Coronary Artery Disease", ["yes",'no'])
-    appet = st.selectbox("Appetite", ["good", "poor"])
-    pc = st.selectbox("Protein in Urine", ["normal", "abnormal"])
 
 
-# When the user clicks the "Predict" button
-if st.button('Predict'):
-    # Make the prediction
-    result = predict_chronic_disease(age,bp,sg,al,hemo,sc,htn,dm,cad,appet,pc)
-    # Display the result
+
+    hemo = st.number_input(
+        "Hemoglobin",
+        min_value=5.0,
+        max_value=20.0,
+        value=15.4
+    )
+
+    sc = st.number_input(
+        "Serum Creatinine",
+        min_value=0.5,
+        max_value=10.0,
+        value=1.2
+    )
+
+    htn = st.selectbox(
+        "Hypertension",
+        ["yes","no"]
+    )
+
+    dm = st.selectbox(
+        "Diabetes",
+        ["yes","no"]
+    )
+
+
+with col3:
+
+
+
+    cad = st.selectbox(
+        "Coronary Artery Disease",
+        ["yes","no"]
+    )
+
+    appet = st.selectbox(
+        "Appetite",
+        ["good","poor"]
+    )
+
+    pc = st.selectbox(
+        "Protein in Urine",
+        ["normal","abnormal"]
+    )
+
+    st.markdown("<br>", unsafe_allow_html=True)
+
+# ---------------------------------------
+# Predict Button
+# ---------------------------------------
+
+if st.button("🔍 Predict Kidney Disease"):
+
+    result = predict_chronic_disease(
+        age,
+        bp,
+        sg,
+        al,
+        hemo,
+        sc,
+        htn,
+        dm,
+        cad,
+        appet,
+        pc
+    )
+
     if result == 0:
-        st.markdown("<h3 style='color:red'>The patient has Chronic Kidney Disease</h3>",unsafe_allow_html=True)
+
+        st.error(
+            "⚠️ Prediction: The patient is likely to have Chronic Kidney Disease."
+        )
+
     else:
-        st.write("<h3 style='color:green'>The patient does not have Chronic Kidney Disease</h3>",unsafe_allow_html=True)
 
+        st.success(
+            "✅ Prediction: The patient is NOT likely to have Chronic Kidney Disease."
+        )
 
-st.markdown("<h3>Kidney Disease = Yes  (Sample Data)</h3>",unsafe_allow_html=True)
-st.write("62.0,	80.0,  	1.010,	2.0,	9.6	,   1.8, 	no,	 yes,	no,	poor,	normal",unsafe_allow_html=True)
-st.write("48.0,	70.0,	1.005,	4.0,	11.2,	3.8,	yes, no,	no,	poor,	abnormal",unsafe_allow_html=True)
+# ---------------------------------------
+# Sample Data
+# ---------------------------------------
 
-st.markdown("<h3>Kidney Disease = No  (Sample Data)</h3>",unsafe_allow_html=True)
-st.write("55.0,	80.0,	1.020,	0.0,	15.7,	0.5,	no,	no,	no,	good,	normal",unsafe_allow_html=True)
-st.write("42.0,	70.0,	1.025,	0.0,	16.5,	1.2,	no,	no,	no,	good,	normal",unsafe_allow_html=True)
+st.divider()
+
+with st.expander("📋 Sample Data (Kidney Disease = YES)"):
+    st.code("""
+        62,80,1.010,2,9.6,1.8,no,yes,no,poor,normal
+        
+        48,70,1.005,4,11.2,3.8,yes,no,no,poor,abnormal
+        """)
+
+with st.expander("📋 Sample Data (Kidney Disease = NO)"):
+    st.code("""
+        55,80,1.020,0,15.7,0.5,no,no,no,good,normal
+        
+        42,70,1.025,0,16.5,1.2,no,no,no,good,normal
+        """)
