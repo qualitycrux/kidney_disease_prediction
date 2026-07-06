@@ -1,7 +1,7 @@
 import streamlit as st
 import pickle
 import pandas as pd
-
+from sklearn.preprocessing import LabelEncoder
 
 #load model
 model=pickle.load(open('model-kidney-desease.pkl','rb'))
@@ -27,11 +27,12 @@ def predict_chronic_disease(age, bp, sg, al, hemo, sc, htn, dm, cad, appet, pc):
     df = pd.DataFrame(df_dict)
 
     # Encode the categorical columns
-    df['htn'] = df['htn'].map({'yes':1, "no":0})
-    df['dm'] = df['dm'].map({'yes':1, "no":0})
-    df['cad'] = df['cad'].map({'yes':1, "no":0})
-    df['appet'] = df['appet'].map({'good':1, "poor":0})
-    df['pc'] = df['pc'].map({'normal':1, "abnormal":0})
+    le = LabelEncoder()
+    df['htn'] = le.fit_transform(df['htn'])
+    df['dm'] = le.fit_transform(df['dm'])
+    df['cad'] = le.fit_transform(df['cad'])
+    df['appet'] = le.fit_transform(df['appet'])
+    df['pc'] = le.fit_transform(df['pc'])
 
     # Scale the numeric columns using the previously fitted scaler
     numeric_cols = ['age', 'bp', 'sg', 'al', 'hemo', 'sc']
