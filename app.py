@@ -107,7 +107,7 @@ div[data-testid="stSelectbox"]{
 # Header
 # ---------------------------------------
 
-st.markdown("<div class='big-title'>🩺 Chronic Kidney Disease Prediction</div>",
+st.markdown("<div class='big-title'>Chronic Kidney Disease Prediction</div>",
             unsafe_allow_html=True)
 
 st.markdown(
@@ -257,29 +257,19 @@ with st.expander("📋 Sample Data (Kidney Disease = NO)"):
         42,70,1.025,0,16.5,1.2,no,no,no,good,normal
         """)
 
-st.write("<h3>We can use all these values to make it more Perfect</h3>",unsafe_allow_html=True)
+st.write("<h3>We can use all these values to check results.</h3>",unsafe_allow_html=True)
 st.write("""<div><ol>
-    <li>Blood Pressure</li>
-    <li>Specific Gravity</li>
-    <li>Albumin Level</li>
     <li>Blood Sugar Level</li>
     <li>Red Blood Cells</li>
-    <li>Pus Cells</li>
     <li>Pus Cell Clumps</li>
     <li>Bacteria in Urine</li>
     <li>Random Blood Glucose</li>
     <li>Blood Urea</li>
-    <li>Serum Creatinine</li>
     <li>Sodium Level</li>
     <li>Potassium Level</li>
-    <li>Hemoglobin</li>
     <li>Packed Cell Volume (PCV)</li>
     <li>White Blood Cell Count (WBC)</li>
     <li>Red Blood Cell Count (RBC)</li>
-    <li>Hypertension (High Blood Pressure)</li>
-    <li>Diabetes Mellitus</li>
-    <li>Coronary Artery Disease</li>
-    <li>Appetite</li>
     <li>Pedal Edema (Swelling of Feet)</li>
     <li>Anemia</li>
 </ol></div>""",unsafe_allow_html=True)
