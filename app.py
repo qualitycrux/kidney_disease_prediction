@@ -263,13 +263,13 @@ st.write("""<div><ol>
     <li>Red Blood Cells</li>
     <li>Pus Cell Clumps</li>
     <li>Bacteria in Urine</li>
-    <li>Random Blood Glucose</li>
-    <li>Blood Urea</li>
+    <li>Random Blood Glucose *</li>
+    <li>Blood Urea *</li>
     <li>Sodium Level</li>
     <li>Potassium Level</li>
-    <li>Packed Cell Volume (PCV)</li>
+    <li>Packed Cell Volume (PCV) *</li>
     <li>White Blood Cell Count (WBC)</li>
-    <li>Red Blood Cell Count (RBC)</li>
-    <li>Pedal Edema (Swelling of Feet)</li>
-    <li>Anemia</li>
+    <li>Red Blood Cell Count (RBC) *</li>
+    <li>Pedal Edema (Swelling of Feet) *</li>
+    <li>Anemia *</li>
 </ol></div>""",unsafe_allow_html=True)
