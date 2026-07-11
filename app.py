@@ -111,11 +111,11 @@ st.markdown("<div class='big-title'>Chronic Kidney Disease Prediction</div>",
             unsafe_allow_html=True)
 
 st.markdown(
-"<div class='sub-title'>Developed by <b>Muhammad Akhtar</b> | 📱03215261156</div>",
+"<div class='sub-title'>Developed by <b>Muhammad Akhtar</b></div>",
 unsafe_allow_html=True)
 
 #st.divider()
-st.subheader("👤 Patient Details")
+st.subheader("Patient Details")
 # ---------------------------------------
 # Three Columns
 # ---------------------------------------
@@ -229,13 +229,13 @@ if st.button("🔍 Predict Kidney Disease"):
     if result == 0:
 
         st.error(
-            "⚠️ Prediction: The patient is likely to have Chronic Kidney Disease."
+            "Prediction: The patient is likely to have Chronic Kidney Disease."
         )
 
     else:
 
         st.success(
-            "✅ Prediction: The patient is NOT likely to have Chronic Kidney Disease."
+            "Prediction: The patient is NOT likely to have Chronic Kidney Disease."
         )
 
 # ---------------------------------------
@@ -244,13 +244,13 @@ if st.button("🔍 Predict Kidney Disease"):
 
 st.divider()
 
-with st.expander("📋 Sample Data (Kidney Disease = YES)"):
+with st.expander("Sample Data (Kidney Disease = YES)"):
     st.code("""
         62,80,1.010,2,9.6,1.8,no,yes,no,poor,normal
         
         48,70,1.005,4,11.2,3.8,yes,no,no,poor,abnormal
         """)
-with st.expander("📋 Sample Data (Kidney Disease = NO)"):
+with st.expander("Sample Data (Kidney Disease = NO)"):
     st.code("""
         55,80,1.020,0,15.7,0.5,no,no,no,good,normal
         
